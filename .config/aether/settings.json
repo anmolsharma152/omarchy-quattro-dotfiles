@@ -1,0 +1,7 @@
+{
+  "excludedApps": {},
+  "includeNeovim": true,
+  "includeVscode": true,
+  "includeZed": true,
+  "selectedNeovimConfig": ""
+}
