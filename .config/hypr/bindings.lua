@@ -25,8 +25,8 @@ o.bind("SUPER + Prior", "Previous active workspace", "omarchy-workspace-cycle pr
 o.bind("SUPER + SHIFT + Next", "Move window to next workspace", "omarchy-workspace-cycle next --move-window")
 o.bind("SUPER + SHIFT + Prior", "Move window to previous workspace", "omarchy-workspace-cycle prev --move-window")
 
--- 7. Top Panel Bar Toggle (Single clean listener to prevent double-firing)
-o.bind("SUPER + backslash", "Toggle top bar", "omarchy-toggle-bar")
+-- 7. Top Panel Bar Toggle (Super + D)
+o.bind("SUPER + D", "Toggle top bar", "omarchy-toggle-bar")
 
 -- 8. Monitor Scaling (Single keybind, cycles presets & wraps to 1.0 at max)
 o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scaling up")
