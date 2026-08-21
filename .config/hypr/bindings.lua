@@ -31,5 +31,5 @@ o.bind("SUPER + D", "Toggle top bar", "omarchy-toggle-bar")
 -- 8. Monitor Scaling (Single keybind, cycles presets & wraps to 1.0 at max)
 o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scaling up")
 
--- 9. Text Size Scaling (Single keybind, cycles presets: 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
-o.bind("SUPER + bracketright", "Cycle text size", "omarchy-text-size-step")
+-- 9. Text Size Scaling (Super + \: cycles presets 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
+o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
