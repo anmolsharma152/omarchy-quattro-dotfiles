@@ -1,29 +1,35 @@
--- Keep only your personal keybinding overrides here. Add new bindings or
--- unbind defaults before replacing them.
+-- Personal keybinding overrides for Omarchy Quattro
 
--- See current bindings and descriptions:
---   omarchy menu keybindings --print
+-- 1. Window Management
+hl.unbind("SUPER + W")
+o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
 
--- To disable every Omarchy default binding, set this in
--- ~/.config/hypr/hyprland.lua before require("default.hypr.omarchy"), then add
--- only the bindings you want below:
---   omarchy_default_bindings = false
+-- 2. Essential Applications
+hl.unbind("SUPER + SHIFT + B")
+o.bind("SUPER + B", "Browser", { omarchy = "browser" })
 
--- To disable all preinstalled app/webapp bindings, set:
---   omarchy_preinstalled_bindings = false
+hl.unbind("SUPER + SHIFT + F")
+o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
 
--- Add a new binding.
--- o.bind("SUPER + SHIFT + R", "SSH", "alacritty -e ssh your-server")
+-- 3. Antigravity Hotkey
+o.bind("SUPER + A", "Antigravity", "antigravity")
 
--- Change an existing binding by unbinding it first, then binding the key again.
--- This example changes SUPER+SPACE from the launcher to the Omarchy root menu.
--- hl.unbind("SUPER + SPACE")
--- o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu toggle root")
+-- 4. Dynamic Wallpaper Cycling
+o.bind("SUPER + W", "Next wallpaper", "omarchy-theme-bg-next")
 
--- Disable a default binding without replacing it.
--- hl.unbind("SUPER + SHIFT + B")
+-- 5. Active Workspace Cycling (PageDown = Next / PageUp = Prev, wraps on active workspaces)
+o.bind("SUPER + Next", "Next active workspace", "omarchy-workspace-cycle next")
+o.bind("SUPER + Prior", "Previous active workspace", "omarchy-workspace-cycle prev")
 
--- Logitech MX Keys examples:
--- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
--- o.bind("SUPER + H", nil, "voxtype record toggle")
--- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
+-- 6. Move Window (Spans all 10 workspaces and wraps around)
+o.bind("SUPER + SHIFT + Next", "Move window to next workspace", "omarchy-workspace-cycle next --move-window")
+o.bind("SUPER + SHIFT + Prior", "Move window to previous workspace", "omarchy-workspace-cycle prev --move-window")
+
+-- 7. Top Panel Bar Toggle (Single clean listener to prevent double-firing)
+o.bind("SUPER + backslash", "Toggle top bar", "omarchy-toggle-bar")
+
+-- 8. Monitor Scaling (Single keybind, cycles presets & wraps to 1.0 at max)
+o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scaling up")
+
+-- 9. Text Size Scaling (Single keybind, cycles presets: 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
+o.bind("SUPER + bracketright", "Cycle text size", "omarchy-text-size-step")
