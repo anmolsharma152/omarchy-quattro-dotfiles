@@ -52,9 +52,7 @@ precmd() {
   vcs_info
 }
 
-PROMPT='
-%F{cyan}%~%f ${vcs_info_msg_0_}
-%(?.%F{green}.%F{red})>%f '
+PROMPT='%F{cyan}%~%f${vcs_info_msg_0_:+ ${vcs_info_msg_0_}} %(?.%F{green}.%F{red})%%%f '
 
 # ==========================================
 # SHARED ALIASES
