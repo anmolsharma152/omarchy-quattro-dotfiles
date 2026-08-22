@@ -1,9 +1,19 @@
 #!/bin/bash
 # Automated Media Playback Idle Inhibitor (Auto-Caffeine) for PipeWire on Omarchy
-# Uses a 5-second debounce grace period and silent background operation to prevent notification flutter
 
 has_active_audio() {
-  pw-dump 2>/dev/null | jq -e '.[] | select(.type == "PipeWire:Interface:Node" and .info.props["media.class"] == "Stream/Output/Audio" and .info.state == "running")' >/dev/null 2>&1
+  # Strictly check for audio output streams actively producing sound (state == running)
+  # Exclude Electron IDEs/editors (antigravity, code, cursor) that maintain idle audio contexts
+  pw-dump 2>/dev/null | jq -e '
+    .[] | select(
+      .type == "PipeWire:Interface:Node" and
+      .info.props["media.class"] == "Stream/Output/Audio" and
+      .info.state == "running" and
+      (.info.props["application.process.binary"] != "antigravity" and
+       .info.props["application.process.binary"] != "code" and
+       .info.props["application.process.binary"] != "cursor" and
+       .info.props["application.name"] != "Antigravity")
+    )' >/dev/null 2>&1
 }
 
 is_stay_awake() {
