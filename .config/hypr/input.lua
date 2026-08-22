@@ -13,8 +13,8 @@ hl.config({
       -- Enable the touchpad while typing
       disable_while_typing = false,
 
-      -- Left-click-and-drag with three fingers
-      drag_3fg = 1,
+      -- Use 3-fingers exclusively for workspace swipe
+      drag_3fg = 0,
     },
   },
 })
