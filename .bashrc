@@ -1,7 +1,10 @@
 export OMARCHY_PATH="$HOME/.local/share/omarchy"
 export PATH="$OMARCHY_PATH/bin:$HOME/.local/bin:$PATH"
 
-# Load Omarchy environment and aliases
+# Load Omarchy environment and core defaults
 [[ -r "$OMARCHY_PATH/default/bash/env-bootstrap" ]] && source "$OMARCHY_PATH/default/bash/env-bootstrap"
 [[ -r "$OMARCHY_PATH/default/bash/rc" ]] && source "$OMARCHY_PATH/default/bash/rc"
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Load shared environment and personal aliases
+[[ -r "$HOME/.config/shell/env.sh" ]] && source "$HOME/.config/shell/env.sh"
+[[ -r "$HOME/.config/shell/aliases.sh" ]] && source "$HOME/.config/shell/aliases.sh"
