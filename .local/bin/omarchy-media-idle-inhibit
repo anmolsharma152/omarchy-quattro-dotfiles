@@ -1,41 +1,35 @@
 #!/bin/bash
 # Automated Media Playback Idle Inhibitor (Auto-Caffeine) for PipeWire on Omarchy
+# Uses a 5-second debounce grace period and silent background operation to prevent notification flutter
 
 has_active_audio() {
-  # Strictly check for audio output streams whose runtime state is actively "running" (producing sound)
   pw-dump 2>/dev/null | jq -e '.[] | select(.type == "PipeWire:Interface:Node" and .info.props["media.class"] == "Stream/Output/Audio" and .info.state == "running")' >/dev/null 2>&1
 }
 
-prev_state=""
-
-check_and_update() {
-  if has_active_audio; then
-    if [[ "$prev_state" != "on" ]]; then
-      omarchy-toggle-idle stay-awake >/dev/null 2>&1 || true
-      omarchy-notification-send -g 󰅶 "Media Playing: Stay Awake Active" -t 2000 2>/dev/null || true
-      prev_state="on"
-    fi
-  else
-    if [[ "$prev_state" != "off" ]]; then
-      if [[ "$prev_state" == "on" ]]; then
-        omarchy-toggle-idle allow-idle >/dev/null 2>&1 || true
-        omarchy-notification-send -g 󰅶 "Media Paused: Normal Idle Restored" -t 2000 2>/dev/null || true
-      fi
-      prev_state="off"
-    fi
-  fi
+is_stay_awake() {
+  [[ -f "$HOME/.local/state/omarchy/indicators/stay-awake" ]]
 }
 
-# Initial state check
-check_and_update
+consecutive_idle=0
+GRACE_SECONDS=5
 
-# Listen live to PipeWire events with periodic loop check
 while true; do
-  pactl subscribe 2>/dev/null | while read -r event; do
-    if [[ "$event" =~ (sink-input|sink|server) ]]; then
-      check_and_update
+  if has_active_audio; then
+    consecutive_idle=0
+    if ! is_stay_awake; then
+      omarchy-toggle-idle stay-awake >/dev/null 2>&1 || true
     fi
-  done
-  sleep 2
-  check_and_update
+  else
+    if is_stay_awake; then
+      ((consecutive_idle++))
+      # Require 5 consecutive seconds of silence before releasing Stay Awake
+      if (( consecutive_idle >= GRACE_SECONDS )); then
+        omarchy-toggle-idle allow-idle >/dev/null 2>&1 || true
+        consecutive_idle=0
+      fi
+    else
+      consecutive_idle=0
+    fi
+  fi
+  sleep 1
 done
