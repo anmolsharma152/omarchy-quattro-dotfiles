@@ -54,7 +54,7 @@ precmd() {
 
 PROMPT='
 %F{cyan}%~%f ${vcs_info_msg_0_}
-%(?.%F{green}.%F{red})❯%f '
+%(?.%F{green}.%F{red})>%f '
 
 # ==========================================
 # SHARED ALIASES
