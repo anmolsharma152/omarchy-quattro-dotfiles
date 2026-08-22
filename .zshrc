@@ -34,10 +34,27 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 fi
 
 # ==========================================
-# PROMPT & TOOLS
+# PROMPT & GIT STATUS (Pure Native Zsh)
 # ==========================================
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
-PROMPT='%F{cyan}%~%f %F{%(?.green.red)}❯%f '
+
+autoload -Uz vcs_info
+setopt prompt_subst
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats '%F{magenta}(%b%u%c)%f'
+zstyle ':vcs_info:git*' actionformats '%F{magenta}(%b|%a%u%c)%f'
+zstyle ':vcs_info:git*' check-for-changes true
+zstyle ':vcs_info:git*' unstagedstr '%F{yellow}*%f'
+zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
+
+precmd() {
+  vcs_info
+}
+
+PROMPT='
+%F{cyan}%~%f ${vcs_info_msg_0_}
+%(?.%F{green}.%F{red})❯%f '
 
 # ==========================================
 # SHARED ALIASES
