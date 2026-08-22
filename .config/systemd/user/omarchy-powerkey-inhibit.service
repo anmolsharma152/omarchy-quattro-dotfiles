@@ -1,0 +1,13 @@
+[Unit]
+Description=Inhibit power key so Hyprland handles the power menu
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/systemd-inhibit --what=handle-power-key --who=Omarchy --why="Omarchy handles power menu" sleep infinity
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,35 @@
+#!/bin/bash
+# Automated Media Playback Idle Inhibitor (Auto-Caffeine) for Omarchy
+
+has_active_audio() {
+  pactl list sink-inputs 2>/dev/null | grep -q "State: RUNNING"
+}
+
+prev_state=""
+
+check_and_update() {
+  if has_active_audio; then
+    if [[ "$prev_state" != "on" ]]; then
+      omarchy toggle idle on >/dev/null 2>&1 || true
+      prev_state="on"
+    fi
+  else
+    if [[ "$prev_state" != "off" ]]; then
+      # Only toggle off if we previously toggled it on
+      if [[ "$prev_state" == "on" ]]; then
+        omarchy toggle idle off >/dev/null 2>&1 || true
+      fi
+      prev_state="off"
+    fi
+  fi
+}
+
+# Initial state check
+check_and_update
+
+# Listen live to PipeWire/Pulse audio state changes
+pactl subscribe 2>/dev/null | while read -r event; do
+  if [[ "$event" =~ (sink-input|sink|server) ]]; then
+    check_and_update
+  fi
+done
