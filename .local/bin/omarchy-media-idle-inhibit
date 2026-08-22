@@ -1,14 +1,21 @@
 #!/bin/bash
-# Automated Media Playback Idle Inhibitor (Auto-Caffeine) for PipeWire on Omarchy
+# Automated Media Playback Idle Inhibitor (Auto-Caffeine) for Omarchy
+# Combines Linux MPRIS player status with PipeWire Pulse streams for precision detection.
 
 has_active_audio() {
-  # Strictly check for audio output streams actively producing sound (state == running)
-  # Exclude Electron IDEs/editors (antigravity, code, cursor) that maintain idle audio contexts
+  # 1. Check if any MPRIS player (CLIAMP, Spotify, Chromium, VLC, MPV) is actively "Playing"
+  if playerctl -a status 2>/dev/null | grep -q "^Playing$"; then
+    return 0
+  fi
+
+  # 2. Check for active PipeWire Pulse audio streams (e.g. web tabs, games, Discord)
+  # Excludes raw ALSA device holders and Electron IDE audio contexts
   pw-dump 2>/dev/null | jq -e '
     .[] | select(
       .type == "PipeWire:Interface:Node" and
       .info.props["media.class"] == "Stream/Output/Audio" and
       .info.state == "running" and
+      .info.props["client.api"] == "pipewire-pulse" and
       (.info.props["application.process.binary"] != "antigravity" and
        .info.props["application.process.binary"] != "code" and
        .info.props["application.process.binary"] != "cursor" and
