@@ -68,5 +68,4 @@ end
 # ==========================================
 if status is-interactive
     command -v zoxide &>/dev/null; and zoxide init fish | source
-    command -v starship &>/dev/null; and starship init fish | source
 end

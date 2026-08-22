@@ -37,7 +37,7 @@ fi
 # PROMPT & TOOLS
 # ==========================================
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
-command -v starship &>/dev/null && eval "$(starship init zsh)"
+PROMPT='%F{cyan}%~%f %F{%(?.green.red)}❯%f '
 
 # ==========================================
 # SHARED ALIASES
