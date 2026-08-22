@@ -1,8 +1,9 @@
 #!/bin/bash
-# Automated Media Playback Idle Inhibitor (Auto-Caffeine) for Omarchy
+# Automated Media Playback Idle Inhibitor (Auto-Caffeine) for PipeWire on Omarchy
 
 has_active_audio() {
-  pactl list sink-inputs 2>/dev/null | grep -q "State: RUNNING"
+  # PipeWire flags playing audio/video streams with "Corked: no"
+  pactl list sink-inputs 2>/dev/null | grep -q "Corked: no"
 }
 
 prev_state=""
@@ -28,9 +29,12 @@ check_and_update() {
 # Initial state check
 check_and_update
 
-# Listen live to PipeWire/Pulse audio state changes
-pactl subscribe 2>/dev/null | while read -r event; do
-  if [[ "$event" =~ (sink-input|sink|server) ]]; then
-    check_and_update
-  fi
+# Listen live to PipeWire/Pulse events with a periodic poll fallback
+while true; do
+  pactl subscribe 2>/dev/null | while read -r event; do
+    if [[ "$event" =~ (sink-input|sink|server) ]]; then
+      check_and_update
+    fi
+  done
+  sleep 2
 done
