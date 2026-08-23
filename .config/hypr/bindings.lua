@@ -11,7 +11,7 @@ hl.unbind("SUPER + SHIFT + ALT + B")
 
 o.bind("SUPER + B", "Browser", { omarchy = "browser" })
 o.bind("SUPER + SHIFT + B", "Zen Browser", "app.zen_browser.zen")
-o.bind("SUPER + CTRL + B", "Firefox", "firefox")
+o.bind("SUPER + CTRL + B", "Firefox Browser", "firefox")
 o.bind("SUPER + ALT + B", "Browser (private)", { omarchy = "browser --private" })
 
 hl.unbind("SUPER + SHIFT + F")
