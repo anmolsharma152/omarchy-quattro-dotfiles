@@ -4,9 +4,10 @@
 hl.unbind("SUPER + W")
 o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
 
--- 2. Essential Applications
-hl.unbind("SUPER + SHIFT + B")
-o.bind("SUPER + B", "Browser", { omarchy = "browser" })
+-- 2. Essential Applications & Browsers
+o.bind("SUPER + B", "Default Browser (Chromium)", { omarchy = "browser" })
+o.bind("SUPER + SHIFT + B", "Zen Browser", "app.zen_browser.zen")
+o.bind("SUPER + CTRL + B", "Firefox", "firefox")
 
 hl.unbind("SUPER + SHIFT + F")
 o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
