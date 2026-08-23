@@ -1,0 +1,10 @@
+{
+  "theme": "Omazed",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "ui_font_size": 15,
+  "buffer_font_size": 15
+}
