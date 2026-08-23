@@ -43,3 +43,7 @@ o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
 -- 10. System Activity Monitors (Btop & Neohtop)
 o.bind("CTRL + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })
 o.bind("SUPER + SHIFT + ESCAPE", "Neohtop", { tui = "neohtop", focus = true })
+
+-- 11. Power Menu (Ctrl + Alt + Del)
+hl.unbind("CTRL + ALT + DELETE")
+o.bind("CTRL + ALT + DELETE", "Power menu", "omarchy-menu toggle system", { locked = true })
