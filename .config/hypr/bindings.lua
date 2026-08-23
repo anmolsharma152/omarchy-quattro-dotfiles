@@ -40,6 +40,6 @@ o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scali
 -- 9. Text Size Scaling (Super + \: cycles presets 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
 o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
 
--- 10. System Activity Monitor (Btop)
+-- 10. System Activity Monitors (Btop & Neohtop)
 o.bind("CTRL + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })
-o.bind("SUPER + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })
+o.bind("SUPER + SHIFT + ESCAPE", "Neohtop", { tui = "neohtop", focus = true })
