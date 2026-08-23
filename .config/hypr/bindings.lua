@@ -4,10 +4,15 @@
 hl.unbind("SUPER + W")
 o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
 
--- 2. Essential Applications & Browsers
-o.bind("SUPER + B", "Default Browser (Chromium)", { omarchy = "browser" })
+-- 2. Clean Browser Keybindings (Zero conflicts)
+hl.unbind("SUPER + SHIFT + B")
+hl.unbind("SUPER + SHIFT + RETURN")
+hl.unbind("SUPER + SHIFT + ALT + B")
+
+o.bind("SUPER + B", "Chromium", { omarchy = "browser" })
 o.bind("SUPER + SHIFT + B", "Zen Browser", "app.zen_browser.zen")
 o.bind("SUPER + CTRL + B", "Firefox", "firefox")
+o.bind("SUPER + ALT + B", "Chromium (private)", { omarchy = "browser --private" })
 
 hl.unbind("SUPER + SHIFT + F")
 o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
