@@ -33,7 +33,3 @@ o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scali
 
 -- 9. Text Size Scaling (Super + \: cycles presets 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
 o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
-
--- 10. Screenshots & OCR (Laptop friendly - Super + Shift + S)
-o.bind("SUPER + SHIFT + S", "Capture screenshot", "omarchy-capture-screenshot")
-o.bind("SUPER + SHIFT + CTRL + S", "Extract text (OCR) from screenshot", "omarchy-capture-text")
