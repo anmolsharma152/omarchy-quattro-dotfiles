@@ -2,9 +2,6 @@
 
 -- 1. Window Management
 hl.unbind("SUPER + W")
-hl.unbind("SUPER + Q")
-o.bind("SUPER + SHIFT + Q", "Kill window", "hyprctl kill")
-o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
 
 -- 1.1 App Launcher (Super + D)
 o.bind("SUPER + D", "Apps menu", "omarchy-menu toggle apps")
