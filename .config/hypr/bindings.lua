@@ -3,6 +3,7 @@
 -- 1. Window Management
 hl.unbind("SUPER + W")
 o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
+o.bind("SUPER + SHIFT + Q", "Kill window", "hyprctl kill")
 
 -- 2. Clean Browser Keybindings (Zero conflicts)
 hl.unbind("SUPER + SHIFT + B")
@@ -10,7 +11,7 @@ hl.unbind("SUPER + SHIFT + RETURN")
 hl.unbind("SUPER + SHIFT + ALT + B")
 
 o.bind("SUPER + B", "Browser", { omarchy = "browser" })
-o.bind("SUPER + SHIFT + B", "Zen Browser", "app.zen_browser.zen")
+o.bind("SUPER + SHIFT + B", "Zen Browser", "zen-browser")
 o.bind("SUPER + ALT + B", "Brave Browser", "brave")
 o.bind("SUPER + SHIFT + ALT + B", "Browser (private)", { omarchy = "browser --private" })
 
@@ -40,10 +41,7 @@ o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scali
 -- 9. Text Size Scaling (Super + \: cycles presets 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
 o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
 
--- 10. System Activity Monitors (Btop & Neohtop)
-o.bind("CTRL + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })
-o.bind("SUPER + SHIFT + ESCAPE", "Neohtop", { tui = "neohtop", focus = true })
-
--- 11. Emergency Force-Kill Window (Ctrl + Alt + Del)
+-- 10. System Activity Monitors (Neohtop & Btop)
 hl.unbind("CTRL + ALT + DELETE")
-o.bind("CTRL + ALT + DELETE", "Kill window", "hyprctl kill")
+o.bind("CTRL + ALT + DELETE", "Neohtop", { tui = "neohtop", focus = true })
+o.bind("CTRL + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })

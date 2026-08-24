@@ -23,3 +23,6 @@ require("default.hypr.apps")
 
 -- Apply default opacity after apps have had a chance to opt out.
 o.window({ tag = "default-opacity" }, { opacity = "0.985 0.96" })
+
+-- Untag Btop so it opens as a standard tiled window rather than floating
+o.window("org.omarchy.btop", { tag = "-floating-window", float = false, center = false })

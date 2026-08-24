@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Btop
+GenericName=System Monitor
+Comment=Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+Icon=btop
+Exec=omarchy-launch-tui btop
+Terminal=false
+Categories=System;Monitor;
+Keywords=system;process;task;btop;htop;performance;resources;monitoring;
