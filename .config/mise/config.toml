@@ -1,0 +1,26 @@
+[tools]
+# --- Core Language Runtimes & Package Managers ---
+node = "latest"
+pnpm = "latest"
+rust = "latest"
+uv = "latest"
+
+# --- AI Agents & Coding Tools ---
+opencode = "latest"
+codex = "latest"
+gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
+"npm:composio-core" = "latest"
+"npm:firecrawl-cli" = "latest"
+"npm:@insforge/cli" = "latest"
+
+# --- Cloud & Infrastructure CLIs ---
+gh = "latest"
+supabase = "latest"
+railway = "latest"
+vercel = "latest"
+"npm:@withgraphite/graphite-cli" = "latest"
+
+# --- High-Performance Native Developer Binaries ---
+ruff = "latest"
