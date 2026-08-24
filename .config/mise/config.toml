@@ -4,8 +4,9 @@ node = "latest"
 pnpm = "latest"
 rust = "latest"
 uv = "latest"
+go = "latest"
 
-# --- AI Agents & Coding Tools ---
+# --- AI Agents & Codebase Analysis ---
 opencode = "latest"
 codex = "latest"
 gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
@@ -14,6 +15,11 @@ gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
 "npm:composio-core" = "latest"
 "npm:firecrawl-cli" = "latest"
 "npm:@insforge/cli" = "latest"
+"npm:repomix" = "latest"
+
+# --- Modern JavaScript & TypeScript Tooling ---
+"npm:tsx" = "latest"
+biome = "latest"
 
 # --- Cloud & Infrastructure CLIs ---
 gh = "latest"
@@ -22,5 +28,8 @@ railway = "latest"
 vercel = "latest"
 "npm:@withgraphite/graphite-cli" = "latest"
 
-# --- High-Performance Native Developer Binaries ---
+# --- High-Performance Compilation & Linting Binaries ---
 ruff = "latest"
+cargo-binstall = "latest"
+sccache = "latest"
+golangci-lint = "latest"
