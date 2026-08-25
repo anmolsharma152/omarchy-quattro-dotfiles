@@ -2,7 +2,6 @@
 # --- Core Language Runtimes & Package Managers ---
 node = "latest"
 pnpm = "latest"
-rust = "latest"
 uv = "latest"
 go = "latest"
 
