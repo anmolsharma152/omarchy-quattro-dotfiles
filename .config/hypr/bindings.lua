@@ -47,3 +47,13 @@ o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
 hl.unbind("CTRL + ALT + DELETE")
 o.bind("CTRL + ALT + DELETE", "Neohtop", { tui = "neohtop", focus = true })
 o.bind("CTRL + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })
+
+-- 11. Mechanical Keyboard Sound Controls
+o.bind("SUPER + SHIFT + U", "Toggle keyboard sounds (mute/unmute)", "wayvibes-ctl toggle")
+o.bind("SUPER + U", "Cycle keyboard soundpack", "wayvibes-ctl cycle")
+
+
+
+
+
+
