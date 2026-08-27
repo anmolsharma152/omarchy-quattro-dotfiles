@@ -5,7 +5,7 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/home/omarchy/.local/bin/omarchy-media-idle-inhibit
+ExecStart=/home/omarchy/.local/share/omarchy/bin/omarchy-media-idle-inhibit
 Restart=always
 RestartSec=3
 
