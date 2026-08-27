@@ -1,0 +1,4 @@
+#!/bin/bash
+# Omarchy Theme Set Hook: Sync application themes
+THEME_NAME="$1"
+omarchy-theme-set-qbittorrent "$THEME_NAME" &
