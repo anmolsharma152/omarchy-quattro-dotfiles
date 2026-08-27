@@ -37,8 +37,6 @@ o.bind("SUPER + SHIFT + Prior", "Move window to previous workspace", "omarchy-wo
 o.bind("SUPER + SHIFT + Home", "Move window to first workspace", "omarchy-workspace-cycle first --move-window")
 o.bind("SUPER + SHIFT + End", "Move window to last workspace", "omarchy-workspace-cycle last --move-window")
 
--- 7. Monitor Scaling (Single keybind, cycles presets & wraps to 1.0 at max)
-o.bind("SUPER + slash", "Cycle monitor scaling", "omarchy-hyprland-monitor-scaling up")
 
 -- 9. Text Size Scaling (Super + \: cycles presets 12px -> 14px -> 16px -> 18px -> 10px -> 12px)
 o.bind("SUPER + backslash", "Cycle text size", "omarchy-text-size-step")
