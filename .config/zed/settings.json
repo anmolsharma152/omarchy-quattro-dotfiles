@@ -1,4 +1,9 @@
 {
+  "mouse_wheel_zoom": true,
+  "disable_ai": true,
+  "project_panel": {
+    "dock": "left"
+  },
   "theme": "Omazed",
   "icon_theme": {
     "mode": "system",

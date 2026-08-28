@@ -8,3 +8,8 @@ export PATH="$OMARCHY_PATH/bin:$HOME/.local/bin:$PATH"
 # Load shared environment and personal aliases
 [[ -r "$HOME/.config/shell/env.sh" ]] && source "$HOME/.config/shell/env.sh"
 [[ -r "$HOME/.config/shell/aliases.sh" ]] && source "$HOME/.config/shell/aliases.sh"
+
+export GOPATH="$HOME/.go"
+
+#fm6000
+nitch
