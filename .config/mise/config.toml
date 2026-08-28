@@ -33,5 +33,3 @@ cargo-binstall = "latest"
 sccache = "latest"
 golangci-lint = "latest"
 
-[env]
-TMPDIR = "/tmp/{{env.USER}}"

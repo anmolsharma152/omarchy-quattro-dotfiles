@@ -2,6 +2,8 @@
 
 -- 1. Window Management
 hl.unbind("SUPER + W")
+hl.unbind("SUPER + T")
+o.bind("SUPER + Z", "Toggle window floating/tiling", hl.dsp.window.float({ action = "toggle" }))
 
 -- 1.1 App Launcher (Super + D)
 o.bind("SUPER + D", "Apps menu", "omarchy-menu toggle apps")
@@ -19,8 +21,19 @@ o.bind("SUPER + SHIFT + ALT + B", "Browser (private)", { omarchy = "browser --pr
 hl.unbind("SUPER + SHIFT + F")
 o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
 
--- 3. Antigravity Hotkey
-o.bind("SUPER + A", "Antigravity", "antigravity")
+-- 3. AI Assistants: Graphical Apps (SUPER + ... + A) & Terminal Agents (SUPER + ... + T)
+-- GUI AI Apps
+o.bind("SUPER + A", "Antigravity", { launch = "antigravity", focus = "antigravity" })
+hl.unbind("SUPER + SHIFT + A")
+o.bind("SUPER + SHIFT + A", "ChatGPT / Codex", { launch = "chatgpt", focus = "chatgpt" })
+hl.unbind("SUPER + ALT + A")
+hl.unbind("SUPER + SHIFT + ALT + A")
+o.bind("SUPER + ALT + A", "OpenCode GUI", { launch = "opencode-desktop", focus = "ai.opencode.desktop" })
+
+-- Terminal / TUI AI Agents
+o.bind("SUPER + T", "Antigravity CLI", "omarchy-launch-tui --app-id=org.omarchy.agent /usr/local/bin/agy")
+o.bind("SUPER + SHIFT + T", "Codex CLI", "omarchy-launch-tui --app-id=org.omarchy.agent /home/omarchy/.local/bin/codex")
+o.bind("SUPER + ALT + T", "OpenCode TUI", "omarchy-launch-tui --app-id=org.omarchy.agent /home/omarchy/.local/bin/opencode")
 
 -- 4. Dynamic Wallpaper Cycling
 o.bind("SUPER + W", "Next wallpaper", "omarchy-theme-bg-next")

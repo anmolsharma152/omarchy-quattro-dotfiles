@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Antigravity 2.0
+Comment=Google Agent Command Center
+Exec=/home/omarchy/.local/bin/antigravity %U
+Terminal=false
+Type=Application
+Icon=/home/omarchy/.local/share/icons/hicolor/256x256/apps/antigravity-2.png
+Categories=Development;
+StartupWMClass=Antigravity

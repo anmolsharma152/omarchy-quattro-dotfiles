@@ -19,8 +19,7 @@ if o.preinstalled_bindings_enabled() then
   o.bind("SUPER + SHIFT + W", "Omawrite", { launch = "omawrite" })
   o.bind("SUPER + SHIFT + SLASH", "Passwords", { omarchy = "1password" })
 
-  o.bind("SUPER + SHIFT + A", "ChatGPT", { webapp = "https://chatgpt.com" })
-  o.bind("SUPER + SHIFT + ALT + A", "Grok", { webapp = "https://grok.com" })
+  o.bind("SUPER + SHIFT + A", "ChatGPT / Codex", { launch = "chatgpt", focus = "^(ChatGPT|chatgpt)$" })
   o.bind("SUPER + SHIFT + C", "Calendar", { webapp = "https://app.hey.com/calendar/weeks/" })
   o.bind("SUPER + SHIFT + E", "Email", { webapp = "https://app.hey.com" })
   o.bind("SUPER + SHIFT + ALT + E", "New email", { webapp = "https://app.hey.com/messages/new?display=standalone&new_window=true" })

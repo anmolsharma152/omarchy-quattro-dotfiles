@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Wayvibes
+Comment=Mechanical keyboard sound simulator for Wayland
+Exec=wayvibes
+Icon=input-keyboard
+Terminal=false
+Type=Application
+Categories=Utility;Audio;
+StartupNotify=false
+NoDisplay=true

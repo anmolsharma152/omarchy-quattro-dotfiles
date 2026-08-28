@@ -1,4 +1,4 @@
 [Icon Theme]
 Name=Default
-Comment=Default Cursor Theme
-Inherits=Bibata-Modern-Ice
+Comment=Default Cursor and Icon Theme
+Inherits=Bibata-Modern-Ice,Adwaita,hicolor
