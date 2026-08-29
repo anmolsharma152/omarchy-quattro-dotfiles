@@ -39,6 +39,8 @@ o.bind("SUPER + ALT + T", "OpenCode TUI", "/home/omarchy/.local/share/omarchy/bi
 o.bind("SUPER + W", "Next wallpaper", "omarchy-theme-bg-next")
 
 -- 5. Active Workspace Navigation (PageDown = Next / PageUp = Prev, wraps on active workspaces)
+hl.unbind("SUPER + Home")
+hl.unbind("SUPER + ALT + Home")
 o.bind("SUPER + Next", "Next active workspace", "omarchy-workspace-cycle next")
 o.bind("SUPER + Prior", "Previous active workspace", "omarchy-workspace-cycle prev")
 o.bind("SUPER + Home", "First active workspace", "omarchy-workspace-cycle first")
