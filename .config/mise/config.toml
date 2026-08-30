@@ -24,7 +24,7 @@ biome = "latest"
 gh = "latest"
 supabase = "latest"
 railway = "latest"
-vercel = "latest"
+vercel = { version = "latest", trust_policy_excludes = ["fastq@1.20.2"] }
 "npm:@withgraphite/graphite-cli" = "latest"
 
 # --- High-Performance Compilation & Linting Binaries ---
