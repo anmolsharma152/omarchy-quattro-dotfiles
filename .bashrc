@@ -11,5 +11,7 @@ export PATH="$OMARCHY_PATH/bin:$HOME/.local/bin:$PATH"
 
 export GOPATH="$HOME/.go"
 
-#fm6000
-nitch
+# Only display greeting/fetch in interactive terminal sessions
+if [[ $- == *i* ]] && [[ -t 1 ]]; then
+    nitch
+fi
