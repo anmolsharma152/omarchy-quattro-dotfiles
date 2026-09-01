@@ -1,5 +1,8 @@
 hl.config({
   input = {
+    -- Restore normal CapsLock; move Compose key to Right Alt
+    kb_options = "compose:ralt",
+
     touchpad = {
       -- Use natural (inverse) scrolling
       natural_scroll = true,
