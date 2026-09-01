@@ -2,3 +2,18 @@
 # Omarchy Theme Set Hook: Sync application themes
 THEME_NAME="$1"
 omarchy-theme-set-qbittorrent "$THEME_NAME" &
+
+# Dynamic Fastfetch Theme Integration:
+# If the selected theme provides a custom fastfetch.jsonc, link it.
+# Otherwise, seamlessly restore the default Omarchy fastfetch config.
+THEME_FASTFETCH="$HOME/.config/omarchy/themes/$THEME_NAME/fastfetch.jsonc"
+DEFAULT_FASTFETCH="$HOME/.local/share/omarchy/etc/fastfetch/config.jsonc"
+mkdir -p "$HOME/.config/fastfetch"
+
+if [[ -f "$THEME_FASTFETCH" ]]; then
+  ln -sf "$THEME_FASTFETCH" "$HOME/.config/fastfetch/config.jsonc"
+else
+  if [[ -f "$DEFAULT_FASTFETCH" ]]; then
+    ln -sf "$DEFAULT_FASTFETCH" "$HOME/.config/fastfetch/config.jsonc"
+  fi
+fi
