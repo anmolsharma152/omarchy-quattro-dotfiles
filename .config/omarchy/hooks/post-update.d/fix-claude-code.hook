@@ -1,0 +1,8 @@
+#!/bin/bash
+# Automatically link Claude Code native binary after package updates
+shopt -s nullglob
+for script in "$HOME"/.local/share/mise/installs/npm-anthropic-ai-claude-code/*/node_modules/.mise/@anthropic-ai+claude-code@*/node_modules/@anthropic-ai/claude-code/install.cjs; do
+  if [[ -f "$script" ]]; then
+    node "$script" >/dev/null 2>&1 || true
+  fi
+done
