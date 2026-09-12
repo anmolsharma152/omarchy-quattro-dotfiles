@@ -32,4 +32,5 @@ ruff = "latest"
 cargo-binstall = "latest"
 sccache = "latest"
 golangci-lint = "latest"
+antigravity-cli = "latest"
 

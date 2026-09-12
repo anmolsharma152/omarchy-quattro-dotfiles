@@ -23,7 +23,7 @@ o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
 
 -- 3. AI Assistants: Graphical Apps (SUPER + ... + A) & Terminal Agents (SUPER + ... + T)
 -- GUI AI Apps
-o.bind("SUPER + A", "Antigravity", { launch = "antigravity", focus = "antigravity" })
+o.bind("SUPER + A", "Antigravity", { launch = "/home/omarchy/.local/bin/antigravity", focus = "antigravity" })
 hl.unbind("SUPER + SHIFT + A")
 o.bind("SUPER + SHIFT + A", "ChatGPT / Codex", { launch = "chatgpt", focus = "chatgpt" })
 hl.unbind("SUPER + ALT + A")
@@ -33,7 +33,7 @@ hl.unbind("SUPER + CTRL + A")
 o.bind("SUPER + CTRL + A", "Claude Desktop", { launch = "claude-desktop", focus = "(claude-desktop|claude|Claude)" })
 
 -- Terminal / TUI AI Agents (launches in active terminal directory, or ~/Work fallback)
-o.bind("SUPER + T", "Antigravity CLI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent /usr/local/bin/agy")
+o.bind("SUPER + T", "Antigravity CLI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent agy")
 o.bind("SUPER + SHIFT + T", "Codex CLI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent /home/omarchy/.local/bin/codex")
 o.bind("SUPER + ALT + T", "OpenCode TUI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent /home/omarchy/.local/bin/opencode")
 hl.unbind("SUPER + CTRL + T")
