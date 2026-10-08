@@ -32,12 +32,11 @@ o.bind("SUPER + ALT + A", "OpenCode GUI", { launch = "opencode-desktop", focus =
 hl.unbind("SUPER + CTRL + A")
 o.bind("SUPER + CTRL + A", "Claude Desktop", { launch = "claude-desktop", focus = "(claude-desktop|claude|Claude)" })
 
--- Terminal / TUI AI Agents (launches in active terminal directory, or ~/Work fallback)
-o.bind("SUPER + T", "Antigravity CLI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent agy")
-o.bind("SUPER + SHIFT + T", "Codex CLI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent /home/omarchy/.local/bin/codex")
-o.bind("SUPER + ALT + T", "OpenCode TUI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent /home/omarchy/.local/bin/opencode")
+-- 3.1 Terminal Emulator (Foot)
+o.bind("SUPER + T", "Foot Terminal", 'uwsm-app -- foot -D "$(omarchy-cmd-terminal-cwd)"')
+hl.unbind("SUPER + SHIFT + T")
+hl.unbind("SUPER + ALT + T")
 hl.unbind("SUPER + CTRL + T")
-o.bind("SUPER + CTRL + T", "Claude Code CLI", "/home/omarchy/.local/share/omarchy/bin/omarchy-launch-agent claude")
 
 -- 4. Dynamic Wallpaper Cycling
 o.bind("SUPER + W", "Next wallpaper", "omarchy-theme-bg-next")
