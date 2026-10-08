@@ -69,8 +69,13 @@ o.bind("CTRL + SHIFT + ESCAPE", "Btop", { tui = "btop", focus = true })
 o.bind("SUPER + SHIFT + U", "Toggle keyboard sounds (mute/unmute)", "wayvibes-ctl toggle")
 o.bind("SUPER + U", "Cycle keyboard soundpack", "wayvibes-ctl cycle")
 
+-- 12. Media (Spotify & Cliamp TUI)
+o.bind("SUPER + M", "Spotify", { omarchy = "spotify" })
+hl.unbind("SUPER + SHIFT + M")
+hl.unbind("SUPER + SHIFT + ALT + M")
+o.bind("SUPER + SHIFT + M", "Music TUI (Cliamp)", { tui = "cliamp", focus = true })
 
-
-
-
-
+-- 13. Scratchpad (S and ` both toggle, Shift + S and Shift + ` both move)
+hl.unbind("SUPER + SHIFT + S")
+o.bind("SUPER + SHIFT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
+hl.unbind("SUPER + ALT + S")
